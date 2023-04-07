@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +21,7 @@ import lombok.AllArgsConstructor;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/api/kidsonwheels")
+//@RequestMapping("/api/kidsonwheels")
 @CrossOrigin(origins="http://localhost:8080")
 
 public class HomeController {
@@ -27,19 +29,29 @@ public class HomeController {
 //	private ParentRepository parentRepository;
 //	private ChildRepository childRepository;
 	
+	// Inject the FirebaseService instance
 	private final FirebaseService firebaseService;
 	
-//	@GetMapping
-//	public List<Parent> getAllUsers(){
-//		return parentRepository.findAll();
-//	}
-//	
-	@GetMapping
+
+	// Get all parents from the Firestore database
+	@GetMapping("/api/kidsonwheels")
     public List<Parent> getAllParents() throws ExecutionException, InterruptedException {
         return firebaseService.getAllParents();
     }
+	
+//	
+//	@GetMapping("/")
+//    public String index(Model model) throws ExecutionException, InterruptedException {
+//        List<Parent> parents = firebaseService.getAllParents();
+//        model.addAttribute("parents", parents);
+//        return "index";
+//    }
+//	
+//	
+	
 
-    @PostMapping("/parent")
+	// Add a new parent to the Firestore database
+    @PostMapping("/api/kidsonwheels/parent")
     public Parent addParent(@RequestBody Parent parent) {
         return firebaseService.addParent(parent);
     }
