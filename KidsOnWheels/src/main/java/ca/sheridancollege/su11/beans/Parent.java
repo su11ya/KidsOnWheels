@@ -21,8 +21,8 @@ import lombok.RequiredArgsConstructor;
 public class Parent {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private String id;
 	
 	@NonNull
 	private String userName;
@@ -38,7 +38,7 @@ public class Parent {
 	private String lastName;
 	
 	private String gender;
-    private String phoneNumber;
+    private Long phone;
     private String email;
    
     

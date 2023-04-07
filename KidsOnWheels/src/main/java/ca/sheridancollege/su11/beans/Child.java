@@ -20,8 +20,8 @@ import lombok.RequiredArgsConstructor;
 @Entity
 public class Child {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long childId;
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private String childId;
 	
 	@NonNull
 	private String firstName;
