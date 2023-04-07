@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ca.sheridancollege.su11.beans.Parent;
-import ca.sheridancollege.su11.repositories.ChildRepository;
-import ca.sheridancollege.su11.repositories.ParentRepository;
+//import ca.sheridancollege.su11.repositories.ChildRepository;
+//import ca.sheridancollege.su11.repositories.ParentRepository;
 import ca.sheridancollege.su11.services.FirebaseService;
 import lombok.AllArgsConstructor;
 

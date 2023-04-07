@@ -16,25 +16,51 @@ import com.google.firebase.FirebaseApp;
 
 import ca.sheridancollege.su11.beans.Parent;
 
+/**
+ * FirebaseService is a service class that handles the interaction with
+ * the Firebase Firestore database for Parent objects.
+ */
+
 @Service
 public class FirebaseService {
 	
+	// Instance of Firestore to interact with the database
 	private final Firestore firestore;
 	
+	/**
+	 * Constructor for FirebaseService that initializes the Firestore instance.
+	 * 
+	 * @param firestore The Firestore instance connected to the Firebase Firestore database.
+	 */
 	public FirebaseService(Firestore firestore) {
 		this.firestore = firestore;
 	}
 	
+	/**
+	 * Adds a Parent object to the Firebase Firestore database.
+	 * 
+	 * @param parent The Parent object to be added to the database.
+	 * @return The added Parent object with its assigned ID.
+	 */
+	
 	public Parent addParent(Parent parent) {
 		DocumentReference documentReference = firestore.collection("users").document();
-		 parent.setId(documentReference.getId());
+		
+		parent.setId(documentReference.getId());
 		 
 		//save the parent object, including the id, to Firestore
 		documentReference.set(parent);
-		parent.setId(documentReference.getId());
+		//parent.setId(documentReference.getId());
 		return parent;
 	}
 	
+	/**
+	 * Retrieves all Parent objects from the Firebase Firestore database.
+	 * 
+	 * @return A list of Parent objects.
+	 * @throws ExecutionException If there is an error during the execution of the query.
+	 * @throws InterruptedException If the query is interrupted while waiting for the result.
+	 */
 	public List<Parent> getAllParents() throws ExecutionException, InterruptedException {
         List<QueryDocumentSnapshot> documents = firestore.collection("users").get().get().getDocuments();
         List<Parent> parents = new ArrayList<>();

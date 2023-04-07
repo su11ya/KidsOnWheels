@@ -5,7 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import ca.sheridancollege.su11.beans.Parent;
-import ca.sheridancollege.su11.repositories.ParentRepository;
+//import ca.sheridancollege.su11.repositories.ParentRepository;
 
 //@Component
 //public class ParentBootstrap implements CommandLineRunner {

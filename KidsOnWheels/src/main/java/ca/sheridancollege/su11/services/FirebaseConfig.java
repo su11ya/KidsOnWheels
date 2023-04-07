@@ -17,21 +17,26 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * FirebaseConfig is a configuration class responsible for setting up and initializing
+ * the connection to the Firebase Firestore database.
+ */
+
 @Configuration
 public class FirebaseConfig {
 
+	// The path to the Firebase credentials file
     @Value("${firebase.credentials.path}")
     private String firebaseCredentialsPath;
 
-//    @Bean
-//    public void initializeFirebase() throws IOException {
-//        InputStream serviceAccount = new FileInputStream(credentialsPath);
-//        FirebaseOptions options = FirebaseOptions.builder()
-//                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-//                .build();
-//
-//        FirebaseApp.initializeApp(options);
-//    }
+
+    /**
+     * Initializes the Firebase Firestore connection and returns an instance
+     * of the Firestore database.
+     * 
+     * @return Firestore instance connected to the Firebase Firestore database.
+     * @throws IOException if there is an issue reading the credentials file.
+     */
     
     @Bean
     public Firestore firestore() throws IOException {
